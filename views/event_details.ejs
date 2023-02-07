@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+</head>
+<body>
+    <div class="table-data">
+        <table>
+            <tr>
+                <th>Event Name</th>
+                <th>Participant Name</th>
+                <th>Participant Email</th>
+                <th>Participant Number</th>
+                <th>Participant College</th>
+                <th>Genre</th>
+               </tr>
+            <tr>
+        <%  Details.forEach((data) => { %>
+           
+               
+                    <th> <%  data.userCart.cartItems.forEach((datas) => { %>
+                        <%if(datas.verifyStatus===true){%>
+                           <h1><%=datas.title%></h1>
+                       <% } %>            
+                       
+                        <% }); %> </th>
+                        <th>  <%=data.name%></th>
+                        <th>  <%=data.email%></th>
+                        <th>  <%=data.number%></th>
+                        <th>  <%=data.college%></th>
+                        <th> <%  data.userCart.cartItems.forEach((datas) => { %>
+                            <%if(datas.verifyStatus===true){%>
+                                <p>	<%=datas.genre%></p>
+                            <% } %> 
+                            <% }); %></th>
+                </tr>
+ <% }); %>
+                            </table>
+                            </div>		
+</body>
+</html>

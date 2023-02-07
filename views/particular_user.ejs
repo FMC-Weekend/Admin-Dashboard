@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=heading%></title>
+    <link rel="stylesheet" href="particular_user.css">
+</head>
+<body>
+
+    <div class="container">
+
+
+     
+    <%Details.forEach((data)=>{ %>
+        
+     
+                        <div class="card">
+                            <div class="face face1">
+                              <div class="content">
+                                <span class="stars"></span>
+                                <p class="python"><%=data.number%>
+                                    <br>
+                                    <%=data.email%>
+                                    <br>
+                                 <%=data.college%></p>
+                                <h2 class="python">Events</h2>
+                                <p>
+                                    <table class="tabledata">
+                                        <tr>
+                                            <th>Event Name</th>
+                                            <th>Genre</th>
+                                        </tr>
+                                <%  data.userCart.cartItems.forEach((datas) => { %>
+                                    <%if(datas.verifyStatus===true){%>
+                                     
+                                            <tr>
+                                                <th><%=datas.title%></th>
+                                                <th><%=datas.genre%></th>
+                                       
+                                     
+                                    <% } %>
+                                    <% }); %> </table></p>
+                              </div>
+                            </div>
+                            <div class="face face2">
+                              <h2> <%=data.name%></h2>
+                            </div>
+                          </div>
+                        
+                  
+                        </div>
+
+                    
+                  
+               
+      
+            
+              
+  <%  }) %>
+</body>
+</html>

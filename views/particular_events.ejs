@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title><%=heading%></title>
+</head>
+<body>
+  <style>@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+
+    body {
+      margin: 0;
+      padding: 0;
+      /* display: flex; */
+      font-family: "Righteous", cursive;
+      background-color: #a9c9ff;
+      background-image: linear-gradient(180deg, #a9c9ff 0%, #ffbbec 100%);
+    }
+    .card {
+      position: relative;
+      width: 300px;
+      height: 400px;
+      margin: 0 auto;
+      background: #000;
+      border-radius: 15px;
+      box-shadow: 0 15px 60px rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      /* transition: 0.5s; */
+    }
+
+        .face1 {
+          box-sizing: border-box;
+          padding: 20px;
+        }
+        
+    .face2 {
+          transition: 0.5s;
+        }
+         .face2 h2 {
+            margin: 0;
+            padding: 0;
+            /* font-size: 10em; */
+            color: #fff;
+            transition: 0.5s;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+          }
+          .face1 h2 {
+            margin: 0;
+            padding: 0;
+            font-size: 1em;
+            color: #1aa6b6;
+            transition: 0.5s;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+          }
+          .card:hover .face.face1 {
+      height: 300px;
+    }
+    .card:hover .face.face1 h2 {
+        font-size: 1em;
+      }
+     </style>
+  <center> <h1><%=heading%></h1></center> 
+   
+  <%Details.forEach((data,index)=>{%>
+    <div class="cetre">
+    <%data.userCart.cartItems.forEach((datas)=>{%>
+      
+           <%if(datas.title===heading && datas.verifyStatus===true){ %>
+           
+          <hr>
+           <div class="card">
+            <div class="face face1">
+              <h2> <%= index+1 %> </h2> 
+             
+              <br>
+        <h2> <%=data.name%></h2> 
+                <br>
+               <h2><%=data.email%></h2> 
+                <br>
+               <h2> <%=datas.title%></h2>
+                    <br>
+                  <h2><%=data.number%></h2>  
+                    <br>
+              <h2> <%=data.college%></h2>  
+                </div>
+                <div class="face face2">
+                  <h2> <%=datas.title%></h2>
+                </div>
+                </div>  
+              
+             
+               
+          
+          <% }%>
+       
+
+  
+   <% }) %>
+    </div>
+       
+   <% })%>
+ 
+</body>
+</html>
