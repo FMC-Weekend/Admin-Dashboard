@@ -8,8 +8,12 @@
     ],
     "routes": [
         {
+            "src": "/quiz",
+            "dest": "/index.js"
+        },
+        {
             "src": "/(.*)",
-            "dest": "/"
+            "dest": "/index.js"
         }
     ]
 }

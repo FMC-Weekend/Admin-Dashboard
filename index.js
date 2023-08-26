@@ -286,6 +286,7 @@ mongoose.connect(DB, {
 
 
 // APP SETUP
-app.listen(process.env.PORT || 8000, function (err, result) {
-  console.log(`Server is running at port! ${process.env.PORT}`);
-});
+// app.listen(process.env.PORT || 8000, function (err, result) {
+//   console.log(`Server is running at port! ${process.env.PORT}`);
+// });
+module.exports=app;
