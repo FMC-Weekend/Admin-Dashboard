@@ -27,12 +27,15 @@ app.use(express.static("public"));
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const admin_auth = require('./middleware/admin_auth');
+
 app.use(cookieParser());
+// const res=fetch('https://fmcbackend.onrender.com/api/alluser');
+// console.log(res);
 app.get('/', (req, res) => {
   res.render('admin_login');
 }
 );
-app.get('/register',admin_auth, (req, res) => {
+app.get('/register', (req, res) => {
   res.render('admin_register');
 });
 const userModel = require('./models/admin_user');
@@ -40,7 +43,7 @@ const userModel = require('./models/admin_user');
 const bcrypt = require('bcryptjs');
 
 const saltRounds = 10;
-app.post('/register',admin_auth, async (req, res) => {
+app.post('/register',async (req, res) => {
   try {
 
     var { username, password, name } = req.body;
@@ -180,7 +183,7 @@ app.get('/events',admin_auth, (req, res) =>{
   })
 })
 app.get('/events/:event',admin_auth,(req,res)=>{
-  console.log(req.params.event);
+  // console.log(req.params.event);
   // res.send(req.params.event);
   const dynamicUrl=_.lowerCase(req.params.event);
   uniqueParticipants.forEach((data)=>{
@@ -199,9 +202,10 @@ app.get('/events/:event',admin_auth,(req,res)=>{
   })
   
 })
+
 const options = {
   "method": "GET",
-  "hostname": "fmcw-backend1.onrender.com",
+  "hostname": "fmcbackend.onrender.com",
   "port": null,
   "path": "/api/alluser",
   "headers": {
@@ -241,7 +245,7 @@ const req = http.request(options, function (res) {
               totalOrders++;
               // console.log(datas.price);
               // console.log(datas.title);
-              console.log(data.email);
+              // console.log(data.email);
               
               totalPayments+=datas.price;
               // count++;
